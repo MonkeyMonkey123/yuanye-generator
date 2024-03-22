@@ -1,0 +1,58 @@
+{
+  "name": "acm-template-pro-generator",
+  "description": "ACM 示例模板生成器",
+  "basePackage": "com.yunye",
+  "version": "1.0",
+  "author": "yunye",
+  "createTime": "2024-3-4",
+  "fileConfig": {
+    "inputRootPath": "/Users/java1/yunye-generator/yunye-generator-demo-projects/acm-template-pro",
+    "outputRootPath": "generated",
+    "type": "dir",
+    "File": [
+      {
+        "inputPath": "src/com/yupi/acm/MainTemplate.java.ftl",
+        "outputPath": "src/com/yupi/acm/MainTemplate.java",
+        "type": "file",
+        "generateType": "dynamic"
+      },
+      {
+        "inputPath": ".gitignore",
+        "outputPath": ".gitignore",
+        "type": "file",
+        "generateType": "static"
+      },
+      {
+        "inputPath": "README.md",
+        "outputPath": "README.md",
+        "type": "file",
+        "generateType": "static"
+      }
+    ]
+  },
+  "modelConfig": {
+    "models": [
+      {
+        "filedName": "loop",
+        "type": "boolean",
+        "description": "是否生成循环",
+        "defaultValue": "false",
+        "abbr": "l"
+      },
+      {
+        "filedName": "author",
+        "type": "String",
+        "description": "作者注释",
+        "defaultValue": "yunye",
+        "abbr": "a"
+      },
+      {
+        "filedName": "outputText",
+        "type": "String",
+        "description": "输出信息",
+        "defaultValue": "sum= ",
+        "abbr": "0"
+      }
+    ]
+  }
+}
