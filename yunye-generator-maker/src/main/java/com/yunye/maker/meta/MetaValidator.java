@@ -12,6 +12,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MetaValidator {
     public static void doValidAndFill(Meta meta) {
@@ -30,6 +31,15 @@ public class MetaValidator {
             return;
         }
         for (Meta.ModelConfigDTO.ModelsDTO modelsDTO : modelInfoList) {
+            String groupKey = modelsDTO.getGroupKey();
+            if(StrUtil.isNotEmpty(groupKey)) {
+                List<Meta.ModelConfigDTO.ModelsDTO> sunModelInfoList = modelsDTO.getModels();
+                String allArgsStr = sunModelInfoList.stream().map(sunModelInfo -> {
+                    return String.format("\"--%s\"", sunModelInfo.getFiledName());
+                }).collect(Collectors.joining(","));
+                modelsDTO.setAllArgsStr(allArgsStr);
+                continue;
+            }
             String filedName = modelsDTO.getFiledName();
             if (StrUtil.isBlank(filedName)) {
                 throw new MetaException("未填写 filedName");
@@ -77,6 +87,10 @@ public class MetaValidator {
             return;
         }
         for (Meta.FileConfigDTO.FilesDTO filesDTO : filesInfoList) {
+            String type1 = filesDTO.getType();
+            if (FileTypeEnum.GROUP.getValue().equals(type1)) {
+                continue;
+            }
             String inputPath = filesDTO.getInputPath();
             if (StrUtil.isBlank(inputPath)) {
                 throw new MetaException("未填写 inputPath");

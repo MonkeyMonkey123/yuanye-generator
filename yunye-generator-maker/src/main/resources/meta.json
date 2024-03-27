@@ -18,21 +18,55 @@
         "generateType": "dynamic"
       },
       {
-        "inputPath": ".gitignore",
-        "outputPath": ".gitignore",
-        "type": "file",
-        "generateType": "static"
-      },
-      {
-        "inputPath": "README.md",
-        "outputPath": "README.md",
-        "type": "file",
-        "generateType": "static"
+        "groupKey": "git",
+        "groupName": "开源",
+        "type": "group",
+        "condition": "needGit",
+        "files": [
+          {
+            "inputPath": ".gitignore",
+            "outputPath": ".gitignore",
+            "type": "file",
+            "generateType": "static",
+            "condition": "needGit"
+          },
+          {
+            "inputPath": "README.md",
+            "outputPath": "README.md",
+            "type": "file",
+            "generateType": "static"
+          }
+        ]
       }
     ]
   },
   "modelConfig": {
     "models": [
+      {
+        "groupKey": "mainTemplate",
+        "groupName": "核心模板",
+        "type": "MainTemplate",
+        "description": "用于生成核心模板文件",
+        "condition": "loop",
+        "abbr": "",
+        "models": [
+
+          {
+            "filedName": "author",
+            "type": "String",
+            "description": "作者注释",
+            "defaultValue": "yunye",
+            "abbr": "a"
+          },
+          {
+            "filedName": "outputText",
+            "type": "String",
+            "description": "输出信息",
+            "defaultValue": "sum= ",
+            "abbr": "o"
+          }
+        ]
+      },
       {
         "filedName": "loop",
         "type": "boolean",
@@ -41,18 +75,11 @@
         "abbr": "l"
       },
       {
-        "filedName": "author",
-        "type": "String",
-        "description": "作者注释",
-        "defaultValue": "yunye",
-        "abbr": "a"
-      },
-      {
-        "filedName": "outputText",
-        "type": "String",
-        "description": "输出信息",
-        "defaultValue": "sum= ",
-        "abbr": "o"
+        "filedName": "needGit",
+        "type": "boolean",
+        "description": "是否生成.gitignore文件",
+        "defaultValue": true,
+        "abbr": "-n"
       }
     ]
   }
