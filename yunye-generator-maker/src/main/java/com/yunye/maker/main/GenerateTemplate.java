@@ -73,7 +73,7 @@ public abstract class GenerateTemplate {
         //java包基础路径
         String outputBashPackage = meta.getBasePackage();
         String outputBasePackagePath = StrUtil.join("/", StrUtil.split(outputBashPackage, "."));
-        String outputBaseJavaPackagePath = outputPath + File.separator + "src/main//java/" + outputBasePackagePath;
+        String outputBaseJavaPackagePath = outputPath + File.separator + "src/main/java/" + outputBasePackagePath;
         String inputFilePath;
         String outputFilePath;
         System.out.println(outputBaseJavaPackagePath);
