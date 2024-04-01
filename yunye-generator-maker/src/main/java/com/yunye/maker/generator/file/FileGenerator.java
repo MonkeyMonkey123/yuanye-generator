@@ -16,8 +16,8 @@ public class FileGenerator {
 
         String outputPath = property;
         StaticFileGenerator.copyFilesByHutoll(inputPath, outputPath);
-        String inputDynamicPath = property + File.separator + "src/main/resources/templates/MainTemplate.java.ftl";
-        String outputDynamicPath = outputPath + File.separator + "acm-template/src/com/yupi/acm/MainTemplate.java";
+        String inputDynamicPath = property + File.separator + "src/main/resources/templates/late.java.ftl";
+        String outputDynamicPath = outputPath + File.separator + "acm-template/src/com/yupi/acm/late.java";
         DynamicFileGenerator.doGenerator(inputDynamicPath, outputDynamicPath, model);
 
     }
