@@ -24,7 +24,9 @@ public class MetaManger {
     }
 
     private static Meta initMeta() {
-        String meatJson = ResourceUtil.readUtf8Str("meta.json");
+//        String meatJson = ResourceUtil.readUtf8Str("meta.json");
+        String meatJson = ResourceUtil.readUtf8Str("springboot-init-meta.json");
+
         Meta newMeta = JSONUtil.toBean(meatJson, Meta.class);
         Meta.FileConfigDTO fileConfig = newMeta.getFileConfig();
         //校验处理默认值

@@ -16,8 +16,8 @@ import java.util.concurrent.Callable;
 </#macro>
 <#macro generateCommand indent modelInfo>
     ${indent}System.out.println("输入${modelInfo.groupName}配置信息");
-    ${indent}CommandLine commandLine = new CommandLine(${modelInfo.type}Command.class);
-    ${indent}commandLine.execute(${modelInfo.allArgsStr});
+    ${indent}CommandLine ${modelInfo.groupKey}commandLine = new CommandLine(${modelInfo.type}Command.class);
+    ${indent}${modelInfo.groupKey}commandLine.execute(${modelInfo.allArgsStr});
 </#macro>
 @Data
 @Command(name = "generate", mixinStandardHelpOptions = true, description = "生成代码")
@@ -30,7 +30,7 @@ public class GeneratorCommand implements Callable<Integer> {
             *${modelInfo.groupName}
             */
             static DataModel.${modelInfo.type} ${modelInfo.groupKey} = new DataModel.${modelInfo.type}();
-            @Command(name = "${modelInfo.groupName}",description = "${modelInfo.description}",mixinStandardHelpOptions = true)
+            @Command(name = "${modelInfo.groupName}"<#if modelInfo.description??>,description = "${modelInfo.description}"</#if>,mixinStandardHelpOptions = true)
             @Data
             static class ${modelInfo.type}Command implements Runnable{
             <#list modelInfo.models as subModelInfo>
