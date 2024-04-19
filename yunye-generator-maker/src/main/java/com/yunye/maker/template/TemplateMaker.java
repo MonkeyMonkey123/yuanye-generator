@@ -1,14 +1,7 @@
 package com.yunye.maker.template;
 
-import cn.hutool.core.bean.copier.CopyOptions;
-import com.yunye.maker.template.model.*;
-import com.yunye.maker.template.model.TemplateMakerModelConfig.ModelGroupConfig;
-
-import java.util.List;
-
-import com.yunye.maker.template.model.TemplateMakerModelConfig.ModelInfoConfig;
-
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.IdUtil;
@@ -19,10 +12,11 @@ import com.yunye.maker.meta.enums.FileGenerateTypeEnum;
 import com.yunye.maker.meta.enums.FileTypeEnum;
 import com.yunye.maker.template.enums.FileFilterRangeEnum;
 import com.yunye.maker.template.enums.FileFilterRuleEnum;
+import com.yunye.maker.template.model.*;
+import com.yunye.maker.template.model.TemplateMakerModelConfig.ModelGroupConfig;
+import com.yunye.maker.template.model.TemplateMakerModelConfig.ModelInfoConfig;
 
 import java.io.File;
-import java.lang.reflect.Array;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 

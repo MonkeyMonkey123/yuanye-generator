@@ -1,9 +1,9 @@
 package com.yunye.maker.cli.example;
 
-import java.util.concurrent.Callable;
-
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
+
+import java.util.concurrent.Callable;
 
 /**
  * 交互式输入

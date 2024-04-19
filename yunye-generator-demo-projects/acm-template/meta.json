@@ -1,0 +1,25 @@
+{
+    "name": "acm-template-generator",
+    "description": "ACM 示例模板生成器",
+    "fileConfig": {
+        "sourceRootPath": "F:/java1/yunye-generator/yunye-generator-demo-projects/acm-template",
+        "files": [
+            {
+                "inputPath": "src/com/yupi/acm/MainTemplate.java",
+                "outputPath": "src/com/yupi/acm/MainTemplate.java.ftl",
+                "type": "file",
+                "generateType": "dynamic"
+            }
+        ]
+    },
+    "modelConfig": {
+        "models": [
+            {
+                "filedName": "outputText",
+                "type": "String",
+                "description": "输出信息",
+                "defaultValue": "sum="
+            }
+        ]
+    }
+}

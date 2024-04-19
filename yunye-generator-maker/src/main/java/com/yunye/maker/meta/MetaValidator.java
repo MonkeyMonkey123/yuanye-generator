@@ -8,9 +8,7 @@ import com.yunye.maker.meta.enums.FileGenerateTypeEnum;
 import com.yunye.maker.meta.enums.FileTypeEnum;
 import com.yunye.maker.meta.enums.ModelTypeEnum;
 
-import java.io.File;
 import java.nio.file.Paths;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -1,4 +1,4 @@
-package com.yupi.acm;
+package  ${basePackage}.acm;
 
 import java.util.Scanner;
 
@@ -9,10 +9,8 @@ import java.util.Scanner;
 public class MainTemplate {
 public static void main(String[] args) {
 Scanner scanner = new Scanner(System.in);
-<#if loop>
-    while (scanner.hasNext()) {
-</#if>
 
+while (scanner.hasNext()) {
 // 读取输入元素个数
 int n = scanner.nextInt();
 
@@ -30,10 +28,7 @@ sum += num;
 }
 
 System.out.println("${outputText}" + sum);
-<#if loop>
-    }
-</#if>
-
+}
 
 scanner.close();
 }

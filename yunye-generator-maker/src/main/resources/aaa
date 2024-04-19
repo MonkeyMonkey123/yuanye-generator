@@ -1,0 +1,32 @@
+package com.yunye.model;
+import lombok.Data;
+/**
+*数据模型
+*/
+@Data
+public class DataModel{
+        /**
+        *是否生成循环
+        */
+    public boolean loop = false;
+
+        /**
+        *是否生成.gitignore文件
+        */
+    public boolean needGit = true;
+    /**
+     * 用于生成核心代码模板文件
+     */
+    public MainTemplate mainTemplate = new MainTemplate() ;
+    public static class MainTemplate {
+        /**
+         *作者注释
+         */
+        public String author = "yunye";
+        /**
+         *输出信息
+         */
+        public String outputText = "sum= ";
+    }
+
+}

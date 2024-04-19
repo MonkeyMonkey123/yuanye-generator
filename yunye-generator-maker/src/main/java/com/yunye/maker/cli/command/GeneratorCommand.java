@@ -4,8 +4,8 @@ import cn.hutool.core.bean.BeanUtil;
 import com.yunye.maker.generator.file.FileGenerator;
 import com.yunye.maker.model.DataModel;
 import lombok.Data;
-import picocli.CommandLine.Option;
 import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
 
 import java.util.concurrent.Callable;
 @Data

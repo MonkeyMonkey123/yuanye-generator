@@ -3,6 +3,7 @@ package com.yunye.maker.main;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.util.ZipUtil;
 import com.yunye.maker.generator.JarGenerator;
 import com.yunye.maker.generator.ScriptGenerator;
 import com.yunye.maker.generator.file.DynamicFileGenerator;
@@ -20,6 +21,21 @@ public abstract class GenerateTemplate {
         //输出根路径
         String projectPath = System.getProperty("user.dir");
         String outputPath = projectPath + File.separator + "generated" + File.separator + meta.getName();
+        doGenerate(meta, outputPath);
+
+    }
+
+    /**
+     * 生成
+     * @param meta
+     * @param outputPath
+     * @throws TemplateException
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    public void doGenerate(Meta meta,String outputPath) throws TemplateException, IOException, InterruptedException {
+        System.out.println(meta);
+        //输出根路径
         if (FileUtil.exist(outputPath)) {
             FileUtil.mkdir(outputPath);
         }
@@ -44,7 +60,15 @@ public abstract class GenerateTemplate {
         return shellOutputPath;
     }
 
-    private void buildDest(String outputPath, String sourceCopyDestPath, String shellOutputPath, String jarPath) {
+    /**
+     * 生成精简版程序MainGenerator
+     * @param outputPath
+     * @param sourceCopyDestPath
+     * @param shellOutputPath
+     * @param jarPath
+     * @return
+     */
+    protected String buildDest(String outputPath, String sourceCopyDestPath, String shellOutputPath, String jarPath) {
         String distOutputPath = outputPath + "-dist";
 
 
@@ -55,8 +79,10 @@ public abstract class GenerateTemplate {
         FileUtil.copy(jarAbsolutionPath, targetAbsolutePath, true);
         //拷贝脚本文件
         FileUtil.copy(shellOutputPath, distOutputPath, true);
+        FileUtil.copy(shellOutputPath + ".bat", distOutputPath, true);
         //拷贝原模版文件
         FileUtil.copy(sourceCopyDestPath, distOutputPath, true);
+        return distOutputPath;
     }
 
     private String buildJar(String outputPath,Meta meta) throws IOException, InterruptedException {
@@ -68,8 +94,10 @@ public abstract class GenerateTemplate {
 
     private void generatorCode(Meta meta, String outputPath) throws IOException, TemplateException {
         //读取resources目录
-        ClassPathResource classPathResource = new ClassPathResource("");
-        String inputResourcePath = classPathResource.getAbsolutePath();
+//        ClassPathResource classPathResource = new ClassPathResource("");
+//        String inputResourcePath = classPathResource.getAbsolutePath();
+        String inputResourcePath = "";
+
         //java包基础路径
         String outputBashPackage = meta.getBasePackage();
         String outputBasePackagePath = StrUtil.join("/", StrUtil.split(outputBashPackage, "."));
@@ -89,6 +117,10 @@ public abstract class GenerateTemplate {
         //cli.command.GeneratorCommand.java.ftl
         inputFilePath = inputResourcePath + File.separator + "templates/java/cli/command/GeneratorCommand.java.ftl";
         outputFilePath = outputBaseJavaPackagePath + "/cli/command/GeneratorCommand.java";
+        DynamicFileGenerator.doGenerator(inputFilePath, outputFilePath, meta);
+        //cli.command.JSONGeneratorCommand.java.ftl
+        inputFilePath = inputResourcePath + File.separator + "templates/java/cli/command/JSONGeneratorCommand.java.ftl";
+        outputFilePath = outputBaseJavaPackagePath + "/cli/command/JSONGeneratorCommand.java";
         DynamicFileGenerator.doGenerator(inputFilePath, outputFilePath, meta);
         //cli.command.ListCommand.java.ftl
         inputFilePath = inputResourcePath + File.separator + "templates/java/cli/command/ListCommand.java.ftl";
@@ -130,5 +162,10 @@ public abstract class GenerateTemplate {
         String sourceCopyDestPath = outputPath + File.separator + ".source";
         FileUtil.copy(sourceRootPath, sourceCopyDestPath, false);
         return sourceCopyDestPath;
+    }
+    protected String buildZip(String outputPath) {
+        String zipPath = outputPath + ".zip";
+        ZipUtil.zip(outputPath, zipPath);
+        return zipPath;
     }
 }

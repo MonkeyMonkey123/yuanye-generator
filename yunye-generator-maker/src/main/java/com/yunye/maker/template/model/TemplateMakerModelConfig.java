@@ -1,6 +1,5 @@
 package com.yunye.maker.template.model;
 
-import com.yunye.maker.meta.Meta;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

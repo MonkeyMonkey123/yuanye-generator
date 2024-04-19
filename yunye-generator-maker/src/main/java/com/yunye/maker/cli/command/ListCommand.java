@@ -1,7 +1,6 @@
 package com.yunye.maker.cli.command;
 
 import cn.hutool.core.io.FileUtil;
-import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 import java.io.File;
