@@ -31,6 +31,15 @@ export default [
 
     ],
   },
+  // config/routes.ts 或 src/app.tsx
+  {
+    path: '/account/center',
+    component: './account/Center',
+    name: '用户中心',
+    icon: 'user',
+    hideInMenu: true
+    // 可以添加权限等其他配置
+  },
   {path: '/', redirect: '/welcome'},
   {path: '*', layout: false, component: './404'},
 ];

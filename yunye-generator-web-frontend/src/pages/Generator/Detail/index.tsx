@@ -1,6 +1,7 @@
 import AuthorInfo from '@/pages/Generator/Detail/components/AuthorInfo';
 import FileConfig from '@/pages/Generator/Detail/components/FileConfig';
 import ModelConfig from '@/pages/Generator/Detail/components/ModelConfig';
+import TemplateComments from '@/pages/Generator/Detail/components/TemplateComments';
 import {
   downloadGeneratorByIdUsingGet,
   getGeneratorVoByIdUsingGet,
@@ -100,6 +101,8 @@ const GeneratorDetailPage: React.FC = () => {
     </Link>
   );
 
+  // @ts-ignore
+  // @ts-ignore
   return (
     <PageContainer title={<></>} loading={loading}>
       <Card>
@@ -152,6 +155,13 @@ const GeneratorDetailPage: React.FC = () => {
               label: '作者信息',
               children: <AuthorInfo data={data} />,
             },
+            {
+              key: 'mark',
+              label: '模板评论',
+              children: data.id !== undefined && currentUser?.id !== undefined && data.userId !== undefined? (
+                <TemplateComments generatorId={data.id} userId={currentUser?.id} generatorAuthorId = {data.userId} />
+              ) : null,
+            }
           ]}
         />
       </Card>

@@ -11,6 +11,12 @@ declare namespace API {
     message?: string;
   };
 
+  type BaseResponseListCommentsVO_ = {
+    code?: number;
+    data?: CommentsVO[];
+    message?: string;
+  };
+
   type BaseResponseLoginUserVO_ = {
     code?: number;
     data?: LoginUserVO;
@@ -63,6 +69,29 @@ declare namespace API {
     code?: number;
     data?: UserVO;
     message?: string;
+  };
+
+  type Comments = {
+    content?: string;
+    created_at?: string;
+    generator_id?: number;
+    id?: number;
+    user_id?: number;
+  };
+
+  type CommentsVO = {
+    content?: string;
+    created_at?: string;
+    generatorOwnerId?: number;
+    generator_id?: number;
+    id?: number;
+    user_id?: number;
+    users?: User;
+  };
+
+  type deleteCommentUsingDELETEParams = {
+    /** id */
+    id: number;
   };
 
   type DeleteRequest = {
@@ -126,6 +155,10 @@ declare namespace API {
     version?: string;
   };
 
+  type GeneratorCacheRequest = {
+    id?: number;
+  };
+
   type GeneratorEditRequest = {
     author?: string;
     basePackage?: string;
@@ -138,6 +171,12 @@ declare namespace API {
     picture?: string;
     tags?: string[];
     version?: string;
+  };
+
+  type GeneratorMakeRequest = {
+    dataModel?: Record<string, any>;
+    meta?: Meta;
+    zipFilePath?: string;
   };
 
   type GeneratorQueryRequest = {
@@ -199,6 +238,11 @@ declare namespace API {
     version?: string;
   };
 
+  type getCommentUsingGETParams = {
+    /** id */
+    id: number;
+  };
+
   type getGeneratorVOByIdUsingGETParams = {
     /** id */
     id?: number;
@@ -222,6 +266,17 @@ declare namespace API {
     userName?: string;
     userProfile?: string;
     userRole?: string;
+  };
+
+  type Meta = {
+    author?: string;
+    basePackage?: string;
+    createTime?: string;
+    description?: string;
+    fileConfig?: FileConfigDTO;
+    modelConfig?: ModelConfigDTO;
+    name?: string;
+    version?: string;
   };
 
   type ModelConfigDTO = {

@@ -1,6 +1,4 @@
 # 公共配置文件
-# @author <a href="https://github.com/liyupi">程序员鱼皮</a>
-# @from <a href="https://yupi.icu">编程导航知识星球</a>
 spring:
   application:
     name: yunye-generator-web-backed
@@ -24,19 +22,18 @@ spring:
     url: jdbc:mysql://localhost:3306/my_db
     username: root
     password: 123456
-  # Redis 配置
-  # todo 需替换配置，然后取消注释
-  #  redis:
-  #    database: 1
-  #    host: localhost
-  #    port: 6379
-  #    timeout: 5000
-  #    password: 123456
+    # Redis 配置
+  redis:
+    database: 7
+    host: localhost
+    port: 6379
+    timeout: 5000
   # 文件上传
   servlet:
     multipart:
       # 大小限制
-      max-file-size: 10MB
+      max-file-size: 50MB
+      max-request-size: 51MB
 server:
   address: 0.0.0.0
   port: 8120
@@ -46,6 +43,11 @@ server:
     session:
       cookie:
         max-age: 2592000
+  tomcat:
+    max-connections: 100000
+    threads:
+      max: 100000
+    accept-count: 1000
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
@@ -59,6 +61,7 @@ mybatis-plus:
 
 # 对象存储
 # todo 需替换配置
+
 cos:
   client:
     accessKey: xxxxxxxxxxxxxxx
@@ -75,4 +78,18 @@ knife4j:
       default:
         api-rule: package
         api-rule-resources:
-          - com.yupi.web.controller
+          - com.yunye.web.controller
+#xxl-job配置
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8080/xxl-job-admin
+    accessToken: default_token
+    executor:
+      appname: yunye-generator-web-backend
+      address:
+      ip:
+      port: 9999
+      logpath: logs/jobhander
+      logretentiondays: 30
+

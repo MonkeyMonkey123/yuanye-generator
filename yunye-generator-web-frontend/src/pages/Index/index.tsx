@@ -5,9 +5,7 @@ import { Avatar, Card, Flex, Image, Input, List, message, Tabs, Tag, Typography 
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'umi';
-import {listGeneratorVoByPageUsingPost} from "@/services/backend/generatorController";
-import FileUploader from "@/components/FileUploader";
-
+import {listGeneratorVoByPageFastUsingPost} from "@/services/backend/generatorController";
 /**
  * 默认分页参数
  */
@@ -37,7 +35,7 @@ const IndexPage: React.FC = () => {
   const doSearch = async () => {
     setLoading(true);
     try {
-      const res = await listGeneratorVoByPageUsingPost(searchParams);
+      const res = await listGeneratorVoByPageFastUsingPost(searchParams);
       setDataList(res.data?.records ?? []);
       setTotal(Number(res.data?.total) ?? 0);
     } catch (error: any) {

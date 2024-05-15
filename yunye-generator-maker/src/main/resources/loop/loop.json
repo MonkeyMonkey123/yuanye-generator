@@ -1,0 +1,45 @@
+{
+  "id": 2,
+  "meta": {
+    "name": "loopTemplate",
+    "description": "冒泡模板生成项目"
+  },
+  "originProjectPath": "../../../yunye-generator-demo-projects/loop-template",
+  "fileConfig": {
+    "files": [
+      {
+        "path": "src/com/yunye/acm/BubbleSort.java"
+      }
+    ]
+  },
+  "modelConfig": {
+    "modelGroupConfig": {
+      "groupKey": "bubbleSort",
+      "groupName": "冒泡排序设置",
+      "type": "BubbleSort"
+    },
+    "models": [
+      {
+        "filedName": "author",
+        "type": "String",
+        "description": "作者姓名",
+        "defaultValue": "liyuan",
+        "replaceText": "liyuan"
+      },
+      {
+        "filedName": "description",
+        "type": "String",
+        "description": "描述信息",
+        "defaultValue": "如果在这一轮中没有交换过元素，则数组已经有序",
+        "replaceText": "如果在这一轮中没有交换过元素，则数组已经有序"
+      },
+      {
+        "filedName": "number",
+        "type": "String",
+        "description": "嵌入数组",
+        "defaultValue": "64, 34, 25, 12, 22, 11, 90",
+        "replaceText": "64, 34, 25, 12, 22, 11, 90"
+      }
+    ]
+  }
+}

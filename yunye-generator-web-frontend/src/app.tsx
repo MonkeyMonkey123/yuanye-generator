@@ -47,9 +47,6 @@ export const layout: RunTimeLayoutConfig = ({initialState}) => {
         return <AvatarDropdown/>;
       },
     },
-    waterMarkProps: {
-      content: initialState?.currentUser?.userName,
-    },
     footerRender: () => <Footer/>,
     menuHeaderRender: undefined,
     // 自定义 403 页面

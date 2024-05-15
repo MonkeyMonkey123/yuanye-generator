@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yupi.web.mapper.GeneratorMapper">
+<mapper namespace="com.yunye.web.mapper.GeneratorMapper">
 
-    <resultMap id="BaseResultMap" type="com.yupi.web.model.entity.Generator">
+    <resultMap id="BaseResultMap" type="com.yunye.web.model.entity.Generator">
         <id property="id" column="id" jdbcType="BIGINT"/>
         <result property="name" column="name" jdbcType="VARCHAR"/>
         <result property="description" column="description" jdbcType="VARCHAR"/>

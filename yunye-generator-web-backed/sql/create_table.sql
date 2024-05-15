@@ -1,6 +1,5 @@
 # 数据库初始化
-# @author <a href="https://github.com/liyupi">程序员鱼皮</a>
-# @from <a href="https://yupi.icu">编程导航知识星球</a>
+
 
 -- 创建库
 create database if not exists my_db;
@@ -76,3 +75,4 @@ INSERT INTO my_db.generator (id, name, description, basePackage, version, author
                              modelConfig, distPath, status, userId)
 VALUES (5, '鱼皮商城', '鱼皮商城项目生成器', 'com.yupi', '1.0', '程序员鱼皮', '["Java", "前端"]',
         'https://pic.yupi.icu/1/_r1_c0709-8e80689ac1da.jpg', '{}', '{}', null, 0, 1);
+

@@ -4,6 +4,7 @@ package com.yunye.maker.meta;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class Meta {
 
     @NoArgsConstructor
     @Data
-    public static class FileConfigDTO {
+    public static class FileConfigDTO implements Serializable {
         private String inputRootPath;
         private String outputRootPath;
         private String sourceRootPath;
@@ -30,7 +31,7 @@ public class Meta {
 
         @NoArgsConstructor
         @Data
-        public static class FilesDTO {
+        public static class FilesDTO  implements Serializable{
             private String inputPath;
             private String outputPath;
             private String type;
@@ -44,12 +45,12 @@ public class Meta {
 
     @NoArgsConstructor
     @Data
-    public static class ModelConfigDTO {
+    public static class ModelConfigDTO  implements Serializable{
         private List<ModelsDTO> models;
 
         @NoArgsConstructor
         @Data
-        public static class ModelsDTO {
+        public static class ModelsDTO  implements Serializable{
             private String filedName;
             private String type;
             private String description;

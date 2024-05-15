@@ -14,7 +14,7 @@
         "type": "String",
         "description": "基础包名",
         "defaultValue": "com.yupi",
-        "replaceText": "com.yupi"./
+        "replaceText": "com.yupi"
       }
     ]
   }

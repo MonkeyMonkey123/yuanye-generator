@@ -66,11 +66,7 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
   const menuItems = [
     ...(menu
       ? [
-          {
-            key: 'center',
-            icon: <UserOutlined />,
-            label: '个人中心',
-          },
+
           {
             key: 'settings',
             icon: <SettingOutlined />,
@@ -85,6 +81,12 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu }) => {
       key: 'logout',
       icon: <LogoutOutlined />,
       label: '退出登录',
+    },
+    {
+      key: 'center',
+      icon: <UserOutlined />,
+      label: '个人中心',
+      onClick: () => history.push('/account/center')
     },
   ];
 

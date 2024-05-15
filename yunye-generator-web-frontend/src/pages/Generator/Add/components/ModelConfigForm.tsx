@@ -19,7 +19,7 @@ export default (props: Props) => {
     remove?: (index: number | number[]) => void,
   ) => (
     <Space>
-      <Form.Item label="字段名称" name={[field.name, 'fieldName']}>
+      <Form.Item label="字段名称" name={[field.name, 'filedName']}>
         <Input />
       </Form.Item>
       <Form.Item label="描述" name={[field.name, 'description']}>
